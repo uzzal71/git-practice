@@ -6,6 +6,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 dotenv.config();
 
+// mongoose connection
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/git-practice', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
 // body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
